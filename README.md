@@ -50,7 +50,18 @@ sudo dpkg-reconfigure tzdata
 ```
 sudo hostnamectl set-hostname <New Name>
 ```
-8. Установить и настроить `fial2ban` для блокирования IP-адресов, пытающихся подобрать пароль к SSH.
+3. Установить и настроить брандмаузер `ufw`
+```bash
+sudo apt install ufw
+```
+Блокируем все входящие соединения, разрешая только подключение по SSH.
+```bash
+sudo ufw default deny incoming; \
+sudo ufw default allow outgoing; \
+sudo ufw allow ssh; \
+sudo ufw enable
+```
+4. Установить и настроить `fial2ban` для блокирования IP-адресов, пытающихся подобрать пароль к SSH.
 ```bash
 sudo apt install fail2ban && sudo systemctl enable fail2ban && sudo systemctl start fail2ban
 ```
