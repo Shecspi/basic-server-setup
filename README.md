@@ -40,14 +40,6 @@ PasswordAuthentication no
 ```
 sudo service ssh restart
 ```
-8. Установить и настроить `fial2ban` для блокирования IP-адресов, пытающихся подобрать пароль к SSH.
-```bash
-sudo apt install fail2ban && sudo systemctl enable fail2ban && sudo systemctl start fail2ban
-```
-Посмотреть статус можно командой
-```bash
-sudo fail2ban-client status sshd
-```
 
 ## Базовая настройка
 1. Установить часовой пояс
@@ -57,6 +49,29 @@ sudo dpkg-reconfigure tzdata
 2. Изменить имени сервера
 ```
 sudo hostnamectl set-hostname <New Name>
+```
+8. Установить и настроить `fial2ban` для блокирования IP-адресов, пытающихся подобрать пароль к SSH.
+```bash
+sudo apt install fail2ban && sudo systemctl enable fail2ban && sudo systemctl start fail2ban
+```
+Отредактировать настройки `fail2ban` в файле `/etc/fail2ban/jail.local`
+```
+[DEFAULT]
+bantime = 604800
+maxretry = 3
+findtime = 7200
+banaction = ufw
+[sshd]
+enabled = true
+```
+`bantime` - время в секундах, на которое банится IP-адрес  
+`maxretry` - количество возможных попыток до попадания в бан-список  
+`findtime` - время, в течение которого считаются неудачные попытки  
+`banaction` - брандмаузер, который будет блокировать iP-адреса  
+  
+Посмотреть статус можно командой
+```bash
+sudo fail2ban-client status sshd
 ```
 
 ## Установка базового набора программ
