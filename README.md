@@ -54,6 +54,7 @@ sudo hostnamectl set-hostname <New Name>
 ```bash
 sudo apt install ufw
 ```
+
 Блокируем все входящие соединения, разрешая только подключение по SSH.
 ```bash
 sudo ufw default deny incoming; \
@@ -61,6 +62,12 @@ sudo ufw default allow outgoing; \
 sudo ufw allow ssh; \
 sudo ufw enable
 ```
+
+Проверить статус работы брандмаузера можно командой
+```bash
+sudo ufw status
+```
+
 4. Установить и настроить `fial2ban` для блокирования IP-адресов, пытающихся подобрать пароль к SSH.
 ```bash
 sudo apt install fail2ban && sudo systemctl enable fail2ban && sudo systemctl start fail2ban
