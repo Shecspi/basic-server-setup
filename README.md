@@ -41,16 +41,7 @@ PasswordAuthentication no
 sudo service ssh restart
 ```
 
-## Базовая настройка
-1. Установить часовой пояс
-```
-sudo dpkg-reconfigure tzdata
-```
-2. Изменить имени сервера
-```
-sudo hostnamectl set-hostname <New Name>
-```
-3. Установить и настроить брандмаузер `ufw`
+8. Установить и настроить брандмаузер `ufw`
 ```bash
 sudo apt install ufw
 ```
@@ -68,7 +59,7 @@ sudo ufw enable
 sudo ufw status
 ```
 
-4. Установить и настроить `fial2ban` для блокирования IP-адресов, пытающихся подобрать пароль к SSH.
+9. Установить и настроить `fial2ban` для блокирования IP-адресов, пытающихся подобрать пароль к SSH.
 ```bash
 sudo apt install fail2ban && sudo systemctl enable fail2ban && sudo systemctl start fail2ban
 ```
@@ -130,3 +121,13 @@ source ~/.zshrc
 
 ## Настройка nVim
 Подробная инструкция по настройке `tmux` находится в репозитории [cheatsheet-nvim](https://github.com/Shecspi/cheatsheet-nvim)
+
+## Остальные настройки
+1. Установить часовой пояс
+```
+sudo dpkg-reconfigure tzdata
+```
+2. Изменить имени сервера
+```
+sudo hostnamectl set-hostname <New Name>
+```
