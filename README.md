@@ -59,7 +59,7 @@ sudo ufw enable
 sudo ufw status
 ```
 
-9. Установить и настроить `fial2ban` для блокирования IP-адресов, пытающихся подобрать пароль к SSH.
+9. Установить и настроить `fail2ban` для блокирования IP-адресов, пытающихся подобрать пароль к SSH.
 ```bash
 sudo apt install fail2ban && sudo systemctl enable fail2ban && sudo systemctl start fail2ban
 ```
