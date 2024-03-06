@@ -61,7 +61,7 @@ sudo ufw status
 
 9. Установить и настроить `fail2ban` для блокирования IP-адресов, пытающихся подобрать пароль к SSH.
 ```bash
-sudo apt install fail2ban && sudo systemctl enable fail2ban && sudo systemctl start fail2ban
+sudo apt install fail2ban && sudo systemctl enable fail2ban
 ```
 Отредактировать настройки `fail2ban` в файле `/etc/fail2ban/jail.local`
 ```
@@ -77,6 +77,11 @@ enabled = true
 `maxretry` - количество возможных попыток до попадания в бан-список  
 `findtime` - время, в течение которого считаются неудачные попытки  
 `banaction` - брандмаузер, который будет блокировать iP-адреса  
+
+Перезагрузить fail2ban, чтобы он прочитал новые настройки
+```bash
+sudo systemctl restart fail2ban
+```
   
 Посмотреть статус можно командой
 ```bash
