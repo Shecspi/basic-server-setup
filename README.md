@@ -132,7 +132,7 @@ source ~/.zshrc
 ```
 sudo dpkg-reconfigure tzdata
 ```
-2. Изменить имени сервера
+2. Изменить имя сервера
 ```
 sudo hostnamectl set-hostname <New Name>
 ```
