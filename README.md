@@ -38,7 +38,7 @@ PasswordAuthentication no
 ```
 7. Перезагрузить SSH-сервис
 ```
-sudo service ssh restart
+sudo systemctl restart ssh
 ```
 
 8. Установить и настроить брандмаузер `ufw`
@@ -92,7 +92,7 @@ sudo fail2ban-client status sshd
 1. Установить минимальный набор необходимых программ
 ```
 sudo apt-get update ; \
-sudo apt-get install -y vim tmux htop git curl wget unzip zip zsh tree build-essential expect btop;
+sudo apt-get install -y vim tmux git curl wget unzip zip zsh tree build-essential btop;
 ```
 
 ## Установка oh-my-zsh и плагинов
